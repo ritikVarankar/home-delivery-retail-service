@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="HDRS.Customer.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+         .stock 
+            {
+              background-color:green; 
+              border-radius: 0% 50% 50% 0% / 0% 50% 50% 0%; 
+              position: relative; 
+              bottom: 20px; 
+              left:1px; 
+              text-align:left; 
+              color: white; 
+              float:left;
+            }  
+</style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style=" background-color:#242424"> 
+     <form id="form1" runat="server"> 
+     <div > 
+      <table style=" width:1100px; margin:0 auto; background-color:white"> 
+      
+                     <%--Header Starts Here--%> 
+      <tr style=" width:1180px; height:50px; border-color:#5f98f3; background-color:White"> 
+          <td><asp:Image ID="Imagel" runat="server" Height="100px" 
+                Imageurl="~/Customer/Images/lobo.jpg" width="150px" BorderColor="#666666" Borderwidth="2px" /></td> 
+      <td style=" width:748px" align="center"> 
+          <asp:Label ID="Label1" runat="server" Text="HDRS" 
+              Font-Bold="True" Font-Names="Copperplate Gothic Bold" 
+              Forecolor="Lime" Font-Size="35px"></asp:Label> 
+              <br /><b>For Those Who Love Shopping...!</b> 
+      </td> 
+      <td style=" width:230px; text-align:right"> 
+          <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" style=" text-align:left" postbackurl="https://www.facebook.com/"
+              ImageUrl="~/Customer/Images/Facebook.png" Width="50px"/> 
+          <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" style=" text-align:left" postbackurl="https://twitter.com/?lang=en" 
+              ImageUrl="~/Customer/Images/Twiitter.png" width="50px" /> 
+          <asp:ImageButton ID="ImageButton3" runat="server" Height="50px" style=" text-align:left" postbackurl="https://www.instagram.com/"
+              ImageUrl="~/Customer/Images/Instagram.jpg" width="50px" />
+          <asp:ImageButton ID="ImageButton4" runat="server" Height="36px" style=" text-align:left" 
+              ImageUrl="~/Customer/Images/Cart.png" width="39px" CausesValidation="False" 
+              onclick="ImageButton4_Click" /> 
+          <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="X-Large" 
+              ForeColor="#9999FF"></asp:Label> 
+        </td> 
+      </tr> 
+<%--Header Ends Here--%> 
+
+           <%--Navigation Starts Here--%> 
+       <tr style=" width:1108px; height:40px; background-color:#00CC00"> 
+          <td colspan="3" style=" text-align:right"> 
+              <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal"  StaticsubMenuIndent="19px"> 
+               <Items> 
+                   <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Customer/Home.aspx"></asp:MenuItem> 
+                   <asp:MenuItem Text="All Products" Value="All Products" NavigateUrl="~/Customer/Home.aspx"></asp:MenuItem> 
+                   <asp:MenuItem Text="Registration" Value="Registration" NavigateUrl="~/Customer/Registration.aspx"></asp:MenuItem> 
+                   <asp:MenuItem  Text="User Login" Value="User Login" NavigateUrl="~/Customer/Login.aspx"></asp:MenuItem> 
+                   <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="~/Customer/About Us.aspx"></asp:MenuItem> 
+                   <asp:MenuItem  Text="Status" Value="Status" NavigateUrl="~/Customer/Status.aspx"></asp:MenuItem> 
+               </Items> 
+               <StaticHoverStyle Backcolor="#FF6666" BorderColor="#FF6666" 
+                   BorderStyle="Outset"  Forecolor="White" Height="40px" /> 
+               <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" Forecolor="Black" 
+                   HorizontalPadding="54px" /> 
+               <StaticselectedStyle BackColor="#99FF99" BorderColor="#FF6666" 
+                   BorderStyle="Inset" Forecolor="#666666" Height="40px" /> 
+              </asp:Menu> 
+          </td> 
+         </tr> 
+              <%--Navigation Ends Here--%>   
+
+          <%--Ads Banner Starts Here--%> 
+          <tr style=" width:1110px; height:310px;"> 
+          <td colspan="3"> 
+             <asp:ScriptManager ID="ScriptManager1" runat="server"> 
+             </asp:ScriptManager> 
+             <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
+                <ContentTemplate> 
+                    <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="2000"></asp:Timer>
+                   <asp:Image ID="Image2" runat="server" BackColor="white" BorderColor="Gray" 
+                       BorderStyle="Double" Height="278px" width="1140px" ImageAlign="Middle"/> 
+                </ContentTemplate> 
+             </asp:UpdatePanel> 
+          </td> 
+        </tr> 
+           <%--Ads Banner Ends Here--%> 
+          
+       <%--Your Content Starts Here--%> 
+      <tr> 
+        <td colspan="3"> 
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> 
+
+            </asp:ContentPlaceHolder> 
+        </td> 
+     </tr> 
+      <%--Your Content Ends Here--%> 
+
+         <%--Footer Starts Here--%> 
+         <tr style=" width:1108px; height:25px; background-color:Black; text-align:center; color:White"> 
+             <td colspan="3"> &copy; Online Shopping Center Pvt. | All rights Reserved. 2021 
+             </td> 
+         </tr> 
+          <%--Footer Ends Here--%> 
+</table> 
+</div> 
+</form> 
+</body>
+</html>
